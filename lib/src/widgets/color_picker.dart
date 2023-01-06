@@ -67,7 +67,7 @@ class ColorPicker extends StatefulWidget {
     required this.materialTitle,
     required this.slidersTitle,
     required this.libraryTitle,
-    this.backgroundColor,
+    required this.backgroundColor,
   }) : super(key: key);
 
   @override
