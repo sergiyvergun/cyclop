@@ -51,6 +51,8 @@ class ColorPicker extends StatefulWidget {
   final String slidersTitle;
   final String libraryTitle;
 
+  final Color? backgroundColor;
+
   const ColorPicker({
     required this.onColorSelected,
     required this.selectedColor,
@@ -65,6 +67,7 @@ class ColorPicker extends StatefulWidget {
     required this.materialTitle,
     required this.slidersTitle,
     required this.libraryTitle,
+    this.backgroundColor,
   }) : super(key: key);
 
   @override
@@ -115,7 +118,8 @@ class _ColorPickerState extends State<ColorPicker> {
       data: widget.darkMode ? darkTheme : lightTheme,
       child: Builder(
         builder: (context) {
-          final theme = Theme.of(context);
+          final theme = Theme.of(context)
+              .copyWith(scaffoldBackgroundColor: widget.backgroundColor);
           return Container(
             constraints: BoxConstraints.loose(pickerSize),
             decoration: BoxDecoration(
