@@ -31,6 +31,8 @@ class ColorButton extends StatefulWidget {
   final String slidersTitle;
   final String libraryTitle;
 
+  final Color? backgroundColor;
+
   const ColorButton({
     required this.color,
     required this.onColorChanged,
@@ -46,6 +48,7 @@ class ColorButton extends StatefulWidget {
     required this.materialTitle,
     required this.slidersTitle,
     required this.libraryTitle,
+    this.backgroundColor,
   }) : super(key: key);
 
   @override
@@ -160,6 +163,7 @@ class _ColorButtonState extends State<ColorButton> with WidgetsBindingObserver {
                   materialTitle: widget.materialTitle,
                   slidersTitle: widget.slidersTitle,
                   libraryTitle: widget.libraryTitle,
+                  backgroundColor: widget.backgroundColor,
                 ),
               ),
             ),
