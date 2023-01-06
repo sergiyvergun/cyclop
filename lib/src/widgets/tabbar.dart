@@ -83,7 +83,6 @@ class _TabsState extends State<Tabs> {
                 decoration: BoxDecoration(
                   color: theme.cardColor,
                   borderRadius: defaultBorderRadius,
-                  boxShadow: defaultShadowBox,
                 ),
               ),
             ),

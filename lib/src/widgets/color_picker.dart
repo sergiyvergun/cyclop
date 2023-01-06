@@ -116,67 +116,64 @@ class _ColorPickerState extends State<ColorPicker> {
       child: Builder(
         builder: (context) {
           final theme = Theme.of(context);
-          return Material(
-            elevation: 0.0,
-            child: Container(
-              constraints: BoxConstraints.loose(pickerSize),
-              decoration: BoxDecoration(
-                color: theme.scaffoldBackgroundColor,
-                borderRadius: BorderRadius.circular(defaultRadius),
-              ),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: Tabs(
-                        labels: [
-                          widget.materialTitle,
-                          widget.slidersTitle,
-                          if (widget.config.enableLibrary) widget.libraryTitle,
-                        ],
-                        views: [
-                          GridColorSelector(
-                            selectedColor: selectedColor,
+          return Container(
+            constraints: BoxConstraints.loose(pickerSize),
+            decoration: BoxDecoration(
+              color: theme.scaffoldBackgroundColor,
+              borderRadius: BorderRadius.circular(defaultRadius),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Flexible(
+                    fit: FlexFit.loose,
+                    child: Tabs(
+                      labels: [
+                        widget.materialTitle,
+                        widget.slidersTitle,
+                        if (widget.config.enableLibrary) widget.libraryTitle,
+                      ],
+                      views: [
+                        GridColorSelector(
+                          selectedColor: selectedColor,
+                          onColorSelected: onColorChanged,
+                        ),
+                        ChannelSliders(
+                          selectedColor: selectedColor,
+                          onChange: onColorChanged,
+                        ),
+                        if (widget.config.enableLibrary)
+                          SwatchLibrary(
+                            colors: widget.swatches,
+                            currentColor: selectedColor,
+                            onSwatchesUpdate: widget.onSwatchesUpdate,
                             onColorSelected: onColorChanged,
                           ),
-                          ChannelSliders(
-                            selectedColor: selectedColor,
-                            onChange: onColorChanged,
-                          ),
-                          if (widget.config.enableLibrary)
-                            SwatchLibrary(
-                              colors: widget.swatches,
-                              currentColor: selectedColor,
-                              onSwatchesUpdate: widget.onSwatchesUpdate,
-                              onColorSelected: onColorChanged,
-                            ),
-                        ],
+                      ],
+                    ),
+                  ),
+                  if (widget.config.enableOpacity)
+                    RepaintBoundary(
+                      child: OpacitySlider(
+                        selectedColor: selectedColor,
+                        opacity: selectedColor.opacity,
+                        onChange: _onOpacityChange,
                       ),
                     ),
-                    if (widget.config.enableOpacity)
-                      RepaintBoundary(
-                        child: OpacitySlider(
-                          selectedColor: selectedColor,
-                          opacity: selectedColor.opacity,
-                          onChange: _onOpacityChange,
-                        ),
-                      ),
-                    defaultDivider,
-                    ColorSelector(
-                      color: selectedColor,
-                      withAlpha: widget.config.enableOpacity,
-                      thumbWidth: 96,
-                      onColorChanged: widget.onColorSelected,
-                      onEyePick: widget.config.enableEyePicker
-                          ? widget.onEyeDropper
-                          : null,
-                      focus: hexFieldFocus,
-                    ),
-                  ],
-                ),
+                  defaultDivider,
+                  ColorSelector(
+                    color: selectedColor,
+                    withAlpha: widget.config.enableOpacity,
+                    thumbWidth: 96,
+                    onColorChanged: widget.onColorSelected,
+                    onEyePick: widget.config.enableEyePicker
+                        ? widget.onEyeDropper
+                        : null,
+                    focus: hexFieldFocus,
+                  ),
+                ],
               ),
             ),
           );
