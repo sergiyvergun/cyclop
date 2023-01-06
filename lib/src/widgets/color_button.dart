@@ -27,6 +27,10 @@ class ColorButton extends StatefulWidget {
 
   final bool darkMode;
 
+  final String materialTitle;
+  final String slidersTitle;
+  final String libraryTitle;
+
   const ColorButton({
     required this.color,
     required this.onColorChanged,
@@ -39,6 +43,9 @@ class ColorButton extends StatefulWidget {
     this.boxShape = BoxShape.circle,
     this.swatches = const {},
     Key? key,
+    required this.materialTitle,
+    required this.slidersTitle,
+    required this.libraryTitle,
   }) : super(key: key);
 
   @override
@@ -150,6 +157,9 @@ class _ColorButtonState extends State<ColorButton> with WidgetsBindingObserver {
                   onSwatchesUpdate: widget.onSwatchesChanged,
                   onEyeDropper: () => _showEyeDropperOverlay(context),
                   onKeyboard: _onKeyboardOn,
+                  materialTitle: widget.materialTitle,
+                  slidersTitle: widget.slidersTitle,
+                  libraryTitle: widget.libraryTitle,
                 ),
               ),
             ),

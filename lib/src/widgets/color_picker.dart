@@ -4,7 +4,6 @@ import '../theme.dart';
 import '../widgets/opacity/opacity_slider.dart';
 import '../widgets/tabbar.dart';
 import 'picker/color_selector.dart';
-import 'picker/title_bar.dart';
 import 'picker_config.dart' if (dart.library.js) 'picker_config_web.dart';
 import 'selectors/channels/hsl_selector.dart';
 import 'selectors/grid_color_selector.dart';
@@ -48,6 +47,10 @@ class ColorPicker extends StatefulWidget {
 
   final VoidCallback? onKeyboard;
 
+  final String materialTitle;
+  final String slidersTitle;
+  final String libraryTitle;
+
   const ColorPicker({
     required this.onColorSelected,
     required this.selectedColor,
@@ -59,6 +62,9 @@ class ColorPicker extends StatefulWidget {
     this.swatches = const {},
     this.darkMode = false,
     Key? key,
+    required this.materialTitle,
+    required this.slidersTitle,
+    required this.libraryTitle,
   }) : super(key: key);
 
   @override
@@ -122,14 +128,14 @@ class _ColorPickerState extends State<ColorPicker> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  MainTitle(onClose: widget.onClose),
+                  // MainTitle(onClose: widget.onClose),
                   Flexible(
                     fit: FlexFit.loose,
                     child: Tabs(
                       labels: [
-                        'Material',
-                        'Sliders',
-                        if (widget.config.enableLibrary) 'Library'
+                        widget.materialTitle,
+                        widget.slidersTitle,
+                        if (widget.config.enableLibrary) widget.libraryTitle,
                       ],
                       views: [
                         GridColorSelector(
