@@ -30,6 +30,7 @@ final lightTheme = ThemeData.light().copyWith(
       ),
   dialogTheme: ThemeData.light().dialogTheme.copyWith(
         backgroundColor: const Color(0xfff6f6f6),
+        elevation: 0.0,
       ),
   iconTheme: ThemeData.light().iconTheme.copyWith(color: Colors.blue),
   textButtonTheme: TextButtonThemeData(style: _lightTextButtonStyle),
@@ -43,6 +44,7 @@ final darkTheme = ThemeData.dark().copyWith(
       .copyWith(selectionColor: Colors.cyan.shade700),
   dialogTheme: ThemeData.light().dialogTheme.copyWith(
         backgroundColor: Colors.grey.shade800,
+        elevation: 0.0,
       ),
   inputDecorationTheme:
       lightTheme.inputDecorationTheme.copyWith(fillColor: Colors.grey.shade800),
