@@ -21,7 +21,7 @@ final lightTheme = ThemeData.light().copyWith(
   toggleableActiveColor: Colors.cyan,
   inputDecorationTheme: ThemeData.light().inputDecorationTheme.copyWith(
         isDense: true,
-        fillColor: Colors.white,
+        fillColor: Colors.grey[200],
         filled: true,
         contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
         border: OutlineInputBorder(
@@ -47,7 +47,7 @@ final darkTheme = ThemeData.dark().copyWith(
         elevation: 0.0,
       ),
   inputDecorationTheme:
-      lightTheme.inputDecorationTheme.copyWith(fillColor: Colors.grey.shade800),
+      lightTheme.inputDecorationTheme.copyWith(fillColor: Colors.grey[800]),
   textButtonTheme: TextButtonThemeData(style: _darkTextButtonStyle),
 );
 
