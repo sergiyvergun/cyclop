@@ -56,7 +56,7 @@ class ColorSelector extends StatelessWidget {
 
   Widget _buildColorThumb() => Material(
         color: Colors.white,
-        elevation: 3,
+        elevation: 0,
         borderRadius: defaultBorderRadius,
         child: Container(
           width: thumbWidth,
