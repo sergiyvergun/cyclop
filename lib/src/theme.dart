@@ -72,10 +72,3 @@ final _darkTextButtonStyle = ButtonStyle(
   foregroundColor: MaterialStateProperty.all(Colors.white70),
   overlayColor: MaterialStateProperty.all(Colors.black12),
 );
-
-const defaultDivider = Divider(
-  color: Color(0xff999999),
-  indent: 8,
-  height: 10,
-  endIndent: 8,
-);

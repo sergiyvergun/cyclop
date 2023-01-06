@@ -187,7 +187,6 @@ class _ColorPickerState extends State<ColorPicker> {
                         opacityTitle: widget.opacityTitle,
                       ),
                     ),
-                  defaultDivider,
                   ColorSelector(
                     color: selectedColor,
                     withAlpha: widget.config.enableOpacity,
