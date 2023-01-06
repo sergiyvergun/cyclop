@@ -77,19 +77,3 @@ const defaultDivider = Divider(
   height: 10,
   endIndent: 8,
 );
-
-const shadowColor = Color(0x44333333);
-
-const darkShadowColor = Color(0x99333333);
-
-const defaultShadowBox = [
-  BoxShadow(blurRadius: 3, spreadRadius: 1, color: shadowColor)
-];
-
-const darkShadowBox = [
-  BoxShadow(blurRadius: 3, spreadRadius: 1, color: darkShadowColor)
-];
-
-const largeDarkShadowBox = [
-  BoxShadow(blurRadius: 10, spreadRadius: 5, color: shadowColor)
-];

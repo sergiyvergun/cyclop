@@ -121,7 +121,6 @@ class _ColorPickerState extends State<ColorPicker> {
             decoration: BoxDecoration(
               color: theme.scaffoldBackgroundColor,
               borderRadius: BorderRadius.circular(defaultRadius),
-              boxShadow: largeDarkShadowBox,
             ),
             child: SingleChildScrollView(
               child: Column(
