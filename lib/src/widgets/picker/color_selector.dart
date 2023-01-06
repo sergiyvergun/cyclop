@@ -64,7 +64,7 @@ class ColorSelector extends StatelessWidget {
           decoration: BoxDecoration(
               color: color,
               borderRadius: defaultBorderRadius,
-              border: Border.all(color: Colors.grey[400]!, width: 1.5)),
+              border: Border.all(color: Colors.grey[200]!, width: 1.5)),
         ),
       );
 }
