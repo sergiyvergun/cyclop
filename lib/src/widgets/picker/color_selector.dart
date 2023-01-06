@@ -38,7 +38,7 @@ class ColorSelector extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          _buildColorThumb(),
+          _buildColorThumb(context),
           HexColorField(
             hexFocus: focus,
             color: color,
@@ -54,7 +54,7 @@ class ColorSelector extends StatelessWidget {
     );
   }
 
-  Widget _buildColorThumb() => Material(
+  Widget _buildColorThumb(BuildContext context) => Material(
         color: Colors.white,
         elevation: 0,
         borderRadius: defaultBorderRadius,
@@ -62,7 +62,7 @@ class ColorSelector extends StatelessWidget {
           width: thumbWidth,
           height: 36,
           decoration: BoxDecoration(
-              color: color,
+              color: Theme.of(context).inputDecorationTheme.fillColor,
               borderRadius: defaultBorderRadius,
               border: Border.all(color: Colors.grey[200]!, width: 1.5)),
         ),
