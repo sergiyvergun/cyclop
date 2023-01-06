@@ -62,9 +62,11 @@ class ColorSelector extends StatelessWidget {
           width: thumbWidth,
           height: 36,
           decoration: BoxDecoration(
-              color: Theme.of(context).inputDecorationTheme.fillColor,
+              color: color,
               borderRadius: defaultBorderRadius,
-              border: Border.all(color: Colors.grey[200]!, width: 1.5)),
+              border: Border.all(
+                  color: Theme.of(context).inputDecorationTheme.fillColor!,
+                  width: 1.5)),
         ),
       );
 }
