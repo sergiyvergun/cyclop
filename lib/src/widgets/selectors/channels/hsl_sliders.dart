@@ -2,16 +2,23 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../../theme.dart';
 import '../../../utils.dart';
 import 'channel_slider.dart';
 
 class HSLSliders extends StatefulWidget {
   final Color color;
   final ValueChanged<Color> onColorChanged;
+  final String hueTitle;
+  final String saturationTitle;
+  final String lightnessTitle;
 
   const HSLSliders(
-      {required this.color, required this.onColorChanged, Key? key})
+      {required this.color,
+      required this.onColorChanged,
+      Key? key,
+      required this.hueTitle,
+      required this.saturationTitle,
+      required this.lightnessTitle})
       : super(key: key);
 
   @override
@@ -47,7 +54,7 @@ class _HSLSlidersState extends State<HSLSliders> {
     return Column(
       children: [
         ChannelSlider(
-          label: Labels.hue,
+          label: widget.hueTitle,
           selectedColor: hslColor,
           colors: getHueGradientColors(/*saturation: saturation*/),
           channelValueGetter: (color) => max(1, hue) / 360,
@@ -58,7 +65,7 @@ class _HSLSlidersState extends State<HSLSliders> {
           },
         ),
         ChannelSlider(
-          label: Labels.saturation,
+          label: widget.saturationTitle,
           selectedColor: hslColor,
           colors: [
             hsl
@@ -80,7 +87,7 @@ class _HSLSlidersState extends State<HSLSliders> {
           },
         ),
         ChannelSlider(
-          label: Labels.light,
+          label: widget.lightnessTitle,
           selectedColor: hslColor,
           colors: [
             hsl

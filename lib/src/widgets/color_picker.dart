@@ -50,6 +50,13 @@ class ColorPicker extends StatefulWidget {
   final String materialTitle;
   final String slidersTitle;
   final String libraryTitle;
+  final String redTitle;
+  final String greenTitle;
+  final String blueTitle;
+  final String hueTitle;
+  final String saturationTitle;
+  final String lightnessTitle;
+  final String opacityTitle;
 
   final Color? backgroundColor;
 
@@ -68,6 +75,13 @@ class ColorPicker extends StatefulWidget {
     required this.slidersTitle,
     required this.libraryTitle,
     required this.backgroundColor,
+    required this.redTitle,
+    required this.greenTitle,
+    required this.blueTitle,
+    required this.hueTitle,
+    required this.saturationTitle,
+    required this.lightnessTitle,
+    required this.opacityTitle,
   }) : super(key: key);
 
   @override
@@ -147,6 +161,12 @@ class _ColorPickerState extends State<ColorPicker> {
                         ChannelSliders(
                           selectedColor: selectedColor,
                           onChange: onColorChanged,
+                          redTitle: widget.redTitle,
+                          greenTitle: widget.greenTitle,
+                          blueTitle: widget.blueTitle,
+                          hueTitle: widget.hueTitle,
+                          lightnessTitle: widget.lightnessTitle,
+                          saturationTitle: widget.saturationTitle,
                         ),
                         if (widget.config.enableLibrary)
                           SwatchLibrary(
@@ -164,6 +184,7 @@ class _ColorPickerState extends State<ColorPicker> {
                         selectedColor: selectedColor,
                         opacity: selectedColor.opacity,
                         onChange: _onOpacityChange,
+                        opacityTitle: widget.opacityTitle,
                       ),
                     ),
                   defaultDivider,

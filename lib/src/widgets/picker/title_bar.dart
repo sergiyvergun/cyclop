@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../theme.dart';
-
 class MainTitle extends StatelessWidget {
   final VoidCallback? onClose;
 
-  const MainTitle({Key? key, this.onClose}) : super(key: key);
+  const MainTitle({Key? key, this.onClose, required this.title})
+      : super(key: key);
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class MainTitle extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Text(
-              Labels.mainTitle,
+              title,
               style: textTheme.subtitle2,
             ),
           ),

@@ -14,11 +14,14 @@ class OpacitySlider extends StatelessWidget {
 
   final ValueChanged<double> onChange;
 
+  final String opacityTitle;
+
   const OpacitySlider({
     required this.opacity,
     required this.selectedColor,
     required this.onChange,
     Key? key,
+    required this.opacityTitle,
   }) : super(key: key);
 
   @override
@@ -37,7 +40,7 @@ class OpacitySlider extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
-                child: Text(Labels.opacity, style: textTheme.subtitle2),
+                child: Text(opacityTitle, style: textTheme.subtitle2),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
