@@ -27,7 +27,7 @@ class GridColorSelector extends StatelessWidget {
           child: ClipRRect(
             borderRadius:
                 const BorderRadius.all(Radius.circular(defaultRadius)),
-            child: GridView.count(
+            child: GridView.count(physics: const BouncingScrollPhysics(),
               padding: EdgeInsets.zero,
               shrinkWrap: true,
               crossAxisCount: 12,
