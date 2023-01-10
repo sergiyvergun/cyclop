@@ -141,6 +141,7 @@ class _ColorPickerState extends State<ColorPicker> {
               borderRadius: BorderRadius.circular(defaultRadius),
             ),
             child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,

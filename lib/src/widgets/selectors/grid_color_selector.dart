@@ -27,30 +27,39 @@ class GridColorSelector extends StatelessWidget {
           child: ClipRRect(
             borderRadius:
                 const BorderRadius.all(Radius.circular(defaultRadius)),
-            child: GridView.count(
-              physics: const BouncingScrollPhysics(),
-              padding: EdgeInsets.zero,
-              shrinkWrap: true,
-              crossAxisCount: 12,
-              childAspectRatio: 1,
-              children: _buildColorsTiles(),
+            child: NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: (overscroll) {
+                overscroll.disallowIndicator();
+                return false;
+              },
+              child: GridView.count(
+                physics: const ClampingScrollPhysics(),
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                crossAxisCount: 12,
+                childAspectRatio: 1,
+                children: _buildColorsTiles(context),
+              ),
             ),
           ),
         ),
       );
 
-  List<Widget> _buildColorsTiles() =>
-      _buildColorGridValues().map(_buildCell).toList();
+  List<Widget> _buildColorsTiles(BuildContext context) =>
+      _buildColorGridValues()
+          .map((Color color) => _buildCell(context, color: color))
+          .toList();
 
   List<Color> _buildColorGridValues({int columns = _numColumns}) => [
         ...Colors.white.getShades(columns, skipFirst: false),
         for (final primary in Colors.primaries) ...primary.getShades(columns)
       ];
 
-  GestureDetector _buildCell(Color color) => GestureDetector(
+  GestureDetector _buildCell(BuildContext context, {required Color color}) =>
+      GestureDetector(
         onTap: () => onColorSelected(color),
         child: Container(
-          color: Colors.white,
+          color: Theme.of(context).inputDecorationTheme.fillColor,
           padding: EdgeInsets.all(isSelected(color) ? _cellBorderWidth : 0),
           child: Container(color: color, width: _cellSize, height: _cellSize),
         ),
