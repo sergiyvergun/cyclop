@@ -96,19 +96,28 @@ class ChannelSliderTrack extends SliderTrackShape with BaseSliderTrackShape {
 
   const ChannelSliderTrack(this.selectedColor, this.colors);
 
+// context,
+  // offset,
+  // parentBox: this,
+  // sliderTheme: _sliderTheme,
+  // enableAnimation: _enableAnimation,
+  // textDirection: _textDirection,
+  // thumbCenter: thumbCenter,
+  // secondaryOffset: secondaryOffset,
+  // isDiscrete: isDiscrete,
+  // isEnabled: isInteractive,
+
   @override
-  void paint(
-    PaintingContext context,
-    Offset offset, {
-    required RenderBox parentBox,
-    required SliderThemeData sliderTheme,
-    required Animation<double> enableAnimation,
-    required TextDirection textDirection,
-    required Offset thumbCenter,
-    bool isDiscrete = false,
-    bool isEnabled = false,
-    double additionalActiveTrackHeight = 2,
-  }) {
+  void paint(PaintingContext context, ui.Offset offset,
+      {required RenderBox parentBox,
+      required SliderThemeData sliderTheme,
+      required Animation<double> enableAnimation,
+      required ui.Offset thumbCenter,
+      ui.Offset? secondaryOffset,
+      bool isEnabled = false,
+      bool isDiscrete = false,
+      double additionalActiveTrackHeight = 2,
+      required ui.TextDirection textDirection}) {
     assert(sliderTheme.disabledActiveTrackColor != null);
     assert(sliderTheme.disabledInactiveTrackColor != null);
     assert(sliderTheme.activeTrackColor != null);

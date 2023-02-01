@@ -179,15 +179,15 @@ class _ColorPickerState extends State<ColorPicker> {
                       ],
                     ),
                   ),
-                  if (widget.config.enableOpacity)
-                    RepaintBoundary(
-                      child: OpacitySlider(
-                        selectedColor: selectedColor,
-                        opacity: selectedColor.opacity,
-                        onChange: _onOpacityChange,
-                        opacityTitle: widget.opacityTitle,
-                      ),
-                    ),
+                  // if (widget.config.enableOpacity)
+                  //   RepaintBoundary(
+                  //     child: OpacitySlider(
+                  //       selectedColor: selectedColor,
+                  //       opacity: selectedColor.opacity,
+                  //       onChange: _onOpacityChange,
+                  //       opacityTitle: widget.opacityTitle,
+                  //     ),
+                  //   ),
                   ColorSelector(
                     color: selectedColor,
                     withAlpha: widget.config.enableOpacity,
